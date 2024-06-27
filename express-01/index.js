@@ -7,6 +7,9 @@ const express = require('express');
 //to setup our server we write
 const app = express();
 
+//setting vew-engine as ejs for render an ejs file
+app.set('view-engine', 'ejs');
+
 //to start listening to our server we write 
 const port = 3000;
 app.listen(port)
@@ -21,5 +24,13 @@ app.get('/', (req, res) => {    //req - request, res - response
     //you can send res only once
     //there are many method linked to res like send, download, status, json, render
 
-    res.send('hii');
+    // res.send('hii');
+
+    //on rendering an html file we get an error
+    // res.render('index.html') //--> throws an error
+
+    //insteed we run an ejs file
+    //to run an ejs file we must setup our view-engine as ejs
+    res.render('index.ejs');
+
 })
