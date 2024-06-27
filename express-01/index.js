@@ -34,3 +34,10 @@ app.get('/', (req, res) => {    //req - request, res - response
     res.render('index.ejs', { text: "world" });
 
 })
+
+//Since the above route is set up for '/' , similarly we can set up as many 
+//routes we want but this would create a mess in our index.js folder
+//insteed we place all of the routes in the routes folder and require them when ever we want
+
+const userRoute = require('./routes/user');
+app.use('/user', userRoute);
