@@ -31,6 +31,6 @@ app.get('/', (req, res) => {    //req - request, res - response
 
     //insteed we run an ejs file
     //to run an ejs file we must setup our view-engine as ejs
-    res.render('index.ejs');
+    res.render('index.ejs', { text: "world" });
 
 })
