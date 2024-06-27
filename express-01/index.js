@@ -41,3 +41,6 @@ app.get('/', (req, res) => {    //req - request, res - response
 
 const userRoute = require('./routes/user');
 app.use('/user', userRoute);
+
+const booksRoute = require('./routes/books');
+app.use('/books', booksRoute);
