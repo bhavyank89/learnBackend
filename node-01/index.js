@@ -13,7 +13,15 @@ fs.writeFileSync("write1.txt", "Entering write1.txt")
 console.log("end-1")
 
 console.log("start-2")
-fs.writeFile("write2.txt", "Entering write1.txt", () => {
+fs.writeFile("write2.txt", "Entering write2.txt", () => {
     console.log("write2.txt created succssfully!!")
 })
 console.log("end-2")
+
+//reading the data
+let data = fs.readFileSync("write1.txt");
+console.log(data.toString())
+
+fs.readFile("write2.txt", (error, data) => {
+    console.log(error, data.toString())
+})
