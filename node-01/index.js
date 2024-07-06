@@ -32,3 +32,11 @@ fs.appendFileSync("write1.txt", " This is the appended text")
 fs.appendFile("write2.txt", " This is the appended text", (error, data) => {
     console.log(error, data)
 })
+
+//Deleting files
+fs.writeFileSync("delete1.txt", "This will be deleted")
+fs.writeFileSync("delete2.txt", "This will be deleted")
+fs.unlinkSync("delete1.txt")
+fs.unlink("delete2.txt", (error, data) => {
+    console.log("File deleted successfully!");
+})
