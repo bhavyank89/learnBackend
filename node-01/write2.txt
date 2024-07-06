@@ -1,1 +1,1 @@
-Entering write2.txt
+Entering write2.txt This is the appended text

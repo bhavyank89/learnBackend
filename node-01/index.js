@@ -25,3 +25,10 @@ console.log(data.toString())
 fs.readFile("write2.txt", (error, data) => {
     console.log(error, data.toString())
 })
+
+//Apending files
+fs.appendFileSync("write1.txt", " This is the appended text")
+
+fs.appendFile("write2.txt", " This is the appended text", (error, data) => {
+    console.log(error, data)
+})
