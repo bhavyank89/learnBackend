@@ -40,3 +40,19 @@ fs.unlinkSync("delete1.txt")
 fs.unlink("delete2.txt", (error, data) => {
     console.log("File deleted successfully!");
 })
+
+//working with directory
+fs.mkdirSync("dir1")
+fs.writeFileSync("./dir1/hello1.txt", "this is a sample file")
+fs.mkdir("dir2", (error, data) => {
+    console.log("directory created successfully!!");
+})
+fs.writeFile("./dir2/hello2.txt", "this is a sample file", (error, data) => {
+    console.log("file created succcessfully!!")
+})
+
+const files = fs.readdirSync("./dir1")
+console.log("Reading file ", files)
+fs.readdir("./dir2", (error, data) => {
+    console.log(data)
+})
