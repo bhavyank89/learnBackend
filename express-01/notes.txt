@@ -1,0 +1,81 @@
+Our express-01 consists of
+
+--Folders
+1)routes
+2)views
+3)public - a)stylesheets
+           b)javascript
+           c)images
+
+--Files
+1)index.js
+
+-- Node.js is a cross-platform, open-source JavaScript runtime environment. It runs on the V8 JavaScript engine, and executes JavaScript code outside a web browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting.
+
+-- Since we can write server side code and can handle request and response send to a route(URL) using http module. But http module of Node.js is tuff to handle and code. Hence we use Express.js to write server side code and handle request and response send to a server.
+
+-- Express.js, is a back end web application framework for building RESTful APIs with Node.js
+
+## Understanding the file and folder structure of express-01 repository
+
+-- first to start with the building of server from Node.js
+    -- We need to initialize the repo with npm (node package manager)
+       npm is the default package manager for the JavaScript runtime environment 
+       Node.js and is included as a recommended feature in the Node.js installer.
+
+    -- npm init -y      -- create a package.json file for a Node.js package.
+    -- npm i express    -- install Express
+
+
+1)index.js
+-- the entery point of are server is index.js
+-- this file consists of the requiring of express from are package and connecting routes and middleware
+-- insteed of writing every route connection in index.js, we setup a folder routes which consists of .js file of different routes
+
+    -- on requiring the express and connecting the routes, we start our server as
+    
+    -- node index.js  -- start our server   
+                      -- but you need to restart the server whenver any changes are made
+                      -- insteed of restarting server again and again we use a npm package called nodemon
+
+    -- Nodemon is a command-line tool that helps with the speedy development of Node. js applications. It monitors your project directory and automatically restarts your node application when it detects any changes. This means that you do not have to stop and restart your applications in order for your changes to take effect.
+
+    -- npm i -D nodemon
+    -- nodemon index.js
+
+2)routes
+-- this folder consists of different .js file of different routes of are web server
+
+3)views
+-- we can respond to the request made on server with various method
+-- this method include res.send("string"), res.json({}), res.render("ejs file")
+-- res.render("ejs file") -- we cannot render a HTML file insteed we render an ejs file
+    -- ejs file is almost similar to an html file.
+
+    -- we can only render an ejs file present in views folder
+    -- to render an ejs file we need to set our view engine as ejs in index.js file before setting any route
+
+        -- app.set("view engine","ejs")
+
+    -- A view engine is a software component that allows the rendering of dynamic HTML content onto a web page.
+
+    -- In a Node.js application, especially when using web frameworks like Express, the views folder is typically used to store templates that generate the HTML content sent to the client's browser.
+    -- These templates can be in various formats, such as EJS (Embedded JavaScript), Pug (formerly Jade), Handlebars, or others. The key purpose of the views folder is to separate the presentation layer from the business logic, making the application more modular and maintainable.
+    
+    -- The views folder contains template files that define the layout and content of web pages. For example, you might have index.ejs, about.pug, or dashboard.hbs files.
+
+4)public
+-- Public folder is used to serve static HTML, css ,images and javascript.
+
+-- There are many differences between vies folder and public folder.The difference are as follows 
+    Views: Used for generating dynamic content. The content can change based 
+    on data  passed from the server.
+    Public: Used for serving static content. The content remains the same and is directly accessible.
+    
+    Views: Templates in the views folder are processed on the server side to generate HTML.
+    Public: Files in the public folder are served directly without any server-side processing.
+
+    Views: Not directly accessible via URL. The server must render a template and send the generated HTML.
+    Public: Directly accessible via URL. For example, a file located at public/css/styles.css can be accessed via http://localhost:3000/css/styles.css.
+
+In summary, the views folder is for dynamic content that is rendered on the server side, while the public folder is for static files that are served directly to the client.
