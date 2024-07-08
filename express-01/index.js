@@ -35,6 +35,20 @@ app.get('/', (req, res) => {    //req - request, res - response
 
 })
 
+//request and query
+app.get('/random/:slug', (req, res) => {
+
+    //for URL : http://localhost:3000/random/mangoDb?mode=dark&region=in
+    console.log(req.params) // will output { slug: 'mangoDb' }
+    console.log(req.query) // will output { mode: 'dark', region: 'in' }
+
+    // In URL slug is a variable and whatever written after question mark are query
+    // each query is seperated with a & sign
+
+    res.send(`Welcome to random/${req.params.slug}`)
+
+})
+
 //Since the above route is set up for '/' , similarly we can set up as many 
 //routes we want but this would create a mess in our index.js folder
 //insteed we place all of the routes in the routes folder and require them when ever we want
