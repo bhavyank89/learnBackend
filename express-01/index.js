@@ -35,9 +35,21 @@ app.get('/', (req, res) => {    //req - request, res - response
 
 })
 
+app.get('/index', (req, res) => {
+    //To render a static file of HTML,CSS,JAVASCRIPT,IMAGES
+    res.sendFile('templates/index.html', { root: __dirname })
+})
+// Only difference between res.sendFile() and res.render() is that 
+// res.render() is user to server dynamic Files using view engines
+// res.sendFile() is used to send static files
+
 //Since the above route is set up for '/' , similarly we can set up as many 
 //routes we want but this would create a mess in our index.js folder
 //insteed we place all of the routes in the routes folder and require them when ever we want
+
+app.get('/api', (req, res) => {
+    res.json({ "a": 1, "b": 2, "c": 3, "d": 4 })
+})
 
 const userRoute = require('./routes/user');
 app.use('/user', userRoute);
