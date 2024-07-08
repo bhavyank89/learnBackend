@@ -35,6 +35,17 @@ app.get('/', (req, res) => {    //req - request, res - response
 
 })
 
+//Since the above route is set up for '/' , similarly we can set up as many 
+//routes we want but this would create a mess in our index.js folder
+//insteed we place all of the routes in the routes folder and require them when ever we want
+
+const userRoute = require('./routes/user');
+app.use('/user', userRoute);
+
+const booksRoute = require('./routes/books');
+app.use('/books', booksRoute);
+
+//-------------------------------------------------------------------------------
 //request and query
 app.get('/random/:slug', (req, res) => {
 
@@ -49,12 +60,22 @@ app.get('/random/:slug', (req, res) => {
 
 })
 
-//Since the above route is set up for '/' , similarly we can set up as many 
-//routes we want but this would create a mess in our index.js folder
-//insteed we place all of the routes in the routes folder and require them when ever we want
 
-const userRoute = require('./routes/user');
-app.use('/user', userRoute);
+//--------------------------------------------------------------------------
+// SERVING STATIC FILES IN EXPRESS
+// Since our backend code/files our not available to all using our URL. We can make it accessable to our user by keeping them in a public folder
+// public folder is used to server a static file such as HTML, CSS, Javascript, Image or any other file to the user without rendering
+// Such files are kept in the public folder
+// app.use() is a middleware which is user to server a static file in express
 
-const booksRoute = require('./routes/books');
-app.use('/books', booksRoute);
+
+//Now when you will hit : http://localhost:3000/notes.txt you will get notes.txt file statically serverd
+app.use(express.static('public'))
+
+//making a paticular route to serve static file
+//Now when you will hit : http://localhost:3000/static/notes.txt you will get notes.txt file statically serverd
+app.use('/static', express.static('public'))
+
+// However, the path that you provide to the express.static function is relative to the directory from where you launch your node process. If you run the express app from another directory, it’s safer to use the absolute path of the directory that you want to serve:
+const path = require('path')
+app.use('/static', express.static(path.join(__dirname, 'public')))

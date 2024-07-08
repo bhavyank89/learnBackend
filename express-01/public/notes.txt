@@ -79,3 +79,5 @@ Our express-01 consists of
     Public: Directly accessible via URL. For example, a file located at public/css/styles.css can be accessed via http://localhost:3000/css/styles.css.
 
 In summary, the views folder is for dynamic content that is rendered on the server side, while the public folder is for static files that are served directly to the client.
+
+// Since our backend code/files our not available to all using our URL. We can make it accessable to our user by keeping them in a public folder
