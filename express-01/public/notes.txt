@@ -45,6 +45,7 @@ Our express-01 consists of
 
 2)routes
 -- this folder consists of different .js file of different routes of are web server
+-- helps us organise the routes in the server code
 
 3)views
 -- we can respond to the request made on server with various method
