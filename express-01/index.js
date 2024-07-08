@@ -38,3 +38,6 @@ app.use('/statFiles', statFiles);
 
 const random = require('./routes/random');
 app.use('/random', random);
+
+const middleware = require('./routes/middleware');
+app.use('/middleware', middleware);
