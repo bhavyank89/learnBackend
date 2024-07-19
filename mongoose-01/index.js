@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('./User');
 
-mongoose.connect('mongodb://localhost:27017')
+mongoose.connect('mongodb://localhost:27017/sigmaLearn')
 
 const createUser = async () => {
     try {
@@ -9,9 +9,9 @@ const createUser = async () => {
         // await user.save();
 
         const user = await User.create({
-            name: 'Guen',
-            age: 15,
-            email: "TEST@test.com"
+            name: 'Ben129',
+            age: 34,
+            email: "TEST01@test.com"
         });
 
         console.log(user);
