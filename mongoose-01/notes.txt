@@ -1,0 +1,9 @@
+-- We need to connect our mongoDB moodules.
+-- This can be done using (mongoDB package of npm) or (mongoose package of npm).
+-- both are used to connect with mongoDB but mongoose is more versetile than mongoDB package.
+-- In mongoDB package, we can add data but there is no feature of schema and authetication.
+-- where in mongoose package we have feature of setting schema for our data.
+-- A schema is a structure formate in which are data must be represented.
+-- A schema defined what the structure of your data looks like.
+
+-- In moongose we store this schema under modles folder.
